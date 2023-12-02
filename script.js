@@ -48,14 +48,16 @@ $(document).ready(function() {
             };
         }
 
-        setTimeout(function() {
+        setTimeout(function(){
             var mergedWorkbook = XLSX.utils.book_new();
             var mergedWorksheet = XLSX.utils.aoa_to_sheet(mergedData);
             XLSX.utils.book_append_sheet(mergedWorkbook, mergedWorksheet, 'Merged Data');
             var mergedFile = XLSX.write(mergedWorkbook, {bookType: 'xlsx', type: 'binary'});
             saveAs(new Blob([s2ab(mergedFile)], {type: 'application/octet-stream'}), 'merged-file.xlsx');
-        }, 5000);
-    });
+        },5000);
+      
+    }
+    );
 });
 
 function s2ab(s) {
